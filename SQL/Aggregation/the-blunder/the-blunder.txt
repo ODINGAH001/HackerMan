@@ -1,0 +1,1 @@
+SELECT CEILING(avg(Salary)-avg(REPLACE(Salary, '0', ''))) FROM Employees;

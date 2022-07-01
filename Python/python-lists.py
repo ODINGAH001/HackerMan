@@ -1,0 +1,22 @@
+#python3
+n=int(input())
+i=0
+op_list=[]#op_list=list()
+while i<n:
+	x=input()
+	x=x.split()
+	if(x[0]=='insert'):
+		op_list.insert(int(x[1]),int(x[2]))
+	elif(x[0]=='print'):
+		print(op_list)
+	elif(x[0]=='remove'):
+		op_list.remove(int(x[1]))
+	elif(x[0]=='append'):
+		op_list.append(int(x[1]))
+	elif(x[0]=='sort'):
+		op_list.sort()
+	elif(x[0]=='pop'):
+		op_list.pop()
+	elif(x[0]=='reverse'):
+		op_list.reverse()
+	i+=1

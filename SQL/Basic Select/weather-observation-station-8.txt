@@ -1,0 +1,13 @@
+*** solution 1 ***
+
+SELECT DISTINCT(CITY) FROM STATION WHERE (CITY LIKE '%a' OR CITY LIKE '%e' OR CITY LIKE '%i' OR CITY LIKE '%o' OR CITY LIKE '%u') AND (CITY LIKE 'a%' OR CITY LIKE 'e%' OR CITY LIKE 'i%' OR CITY LIKE 'o%' OR CITY LIKE 'u%')
+
+
+*** solution 2 ***
+
+select distinct city from station where regexp_like (city,’^[aeiouAEIOU].*[aeiouAEIOU]$’)
+
+
+*** solution 3 ***
+
+select distinct city from station where regexp_like (LOWER(city),’^[aeiou].*[aeiou]$’)

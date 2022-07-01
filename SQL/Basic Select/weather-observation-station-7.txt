@@ -1,0 +1,8 @@
+*** solution 1 ***
+
+SELECT DISTINCT(CITY) FROM STATION WHERE CITY LIKE '%a' OR CITY LIKE '%e' OR CITY LIKE '%i' OR CITY LIKE '%o' OR CITY LIKE '%u'
+
+
+*** solution 2 ***
+
+SELECT DISTINCT(city) FROM station WHERE REGEXP_LIKE(LOWER(city), '.[aeiou]$') ORDER BY CITY;

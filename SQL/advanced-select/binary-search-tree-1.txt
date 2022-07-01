@@ -1,0 +1,25 @@
+mysql
+
+SELECT DISTINCT(P),CONCAT(' Inner') FROM BST WHERE P!='15'
+UNION
+SELECT N,CONCAT(' Leaf') FROM BST WHERE N NOT IN(SELECT DISTINCT(P) FROM BST WHERE P!='NULL') 
+UNION
+SELECT N,CONCAT(' Root') FROM BST WHERE P IS NULL
+ORDER BY 1
+
+or
+
+SELECT N, IF(P IS NULL,'Root',IF((SELECT COUNT(*) FROM BST WHERE P=B.N)>0,'Inner','Leaf')) FROM BST AS B ORDER BY N;
+
+oracle
+
+select  N,
+case
+  when P is null then 'Root'
+  else
+      decode((Select count(1)
+              from BST
+              Where N!=b.N
+              connect by prior N=P
+              start with N=b.N),0,'Leaf','Inner')
+end "Leaf V" from BST b order by 1;

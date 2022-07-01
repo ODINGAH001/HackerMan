@@ -1,0 +1,16 @@
+***worst case***
+
+SELECT * FROM
+(SELECT city , LENGTH(city) AS LENGTH FROM station WHERE LENGTH(city) =
+(SELECT MAX(LENGTH(city)) FROM station) ORDER BY city ) WHERE ROWNUM <= 1
+UNION
+SELECT * FROM
+(SELECT city, LENGTH(city) AS LENGTH FROM station WHERE LENGTH(city) = 
+(SELECT MIN(LENGTH(city)) FROM station) ORDER BY city) WHERE ROWNUM <= 1;
+
+
+***best case***
+
+select * from (select city,length(city) FROM STATION order by length(city) asc,city asc) where ROWNUM=1;
+
+select * from (select city,length(city) FROM STATION order by length(city) desc,city asc) where ROWNUM=1;

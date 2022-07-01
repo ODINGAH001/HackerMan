@@ -1,0 +1,9 @@
+oracle
+
+SELECT DISTINCT CITY FROM STATION WHERE NOT REGEXP_LIKE(lower(CITY),'^[aeiou].*[aeiou]$');
+
+
+
+mysql
+
+SELECT DISTINCT(CITY) FROM STATION WHERE CITY NOT RLIKE '^[aeiou].*[aeiou]$'

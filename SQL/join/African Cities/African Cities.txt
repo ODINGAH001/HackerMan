@@ -1,0 +1,1 @@
+SELECT City.Name FROM City INNER JOIN Country On City.CountryCode=Country.Code AND Country.Continent='Africa';
